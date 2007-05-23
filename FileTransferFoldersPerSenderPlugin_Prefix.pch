@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'FileTransferFoldersPerSenderPlugin' target in the 'FileTransferFoldersPerSenderPlugin' project.
+//
+
+#ifdef __OBJC__
+    #import <Cocoa/Cocoa.h>
+#endif
