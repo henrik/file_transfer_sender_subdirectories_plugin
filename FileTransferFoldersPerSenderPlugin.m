@@ -10,6 +10,7 @@
 #import <Adium/AIAdiumProtocol.h>
 #import <Adium/AIPreferenceControllerProtocol.h>
 #import <Adium/AIFileTransferControllerProtocol.h>
+#import <AIUtilities/AIFileManagerAdditions.h>
 
 @implementation FileTransferFoldersPerSenderPlugin
 
@@ -51,20 +52,19 @@
 	NSString *fUID = [[transfer contact] formattedUID];
 	NSString *userFolderName = [NSString stringWithFormat: (displayName ? @"%@ (%@)" : @"%@%@"), displayName, fUID];
 
-	NSString *defaultFolder = [[adium preferenceController] userPreferredDownloadFolder];
-
 	NSString *destinationPath = [transfer localFilename];
 	NSString *destinationFolder = [destinationPath stringByDeletingLastPathComponent];
 	NSString *destinationFile = [destinationPath lastPathComponent];
 	
-	NSString *userFolder = [defaultFolder stringByAppendingPathComponent:userFolderName];
-	NSString *userPath = [userFolder stringByAppendingPathComponent:destinationFile];
+	NSString *defaultFolder = [[adium preferenceController] userPreferredDownloadFolder];
 	
-	// TODO: Ensure unique filename
-	// Note: Will rename foo.jpg to foo-1.jpg if default dir contains foo.jpg, even if user dir doesn't
+	// FIXME: Will rename foo.jpg to foo-1.jpg if default dir contains foo.jpg, even if user dir doesn't
 	
 	// Only move it if it would have gone into the default folder
 	if ([destinationFolder isEqualToString:defaultFolder]) {
+	
+		NSString *userFolder = [defaultFolder stringByAppendingPathComponent:userFolderName];
+		NSString *userPath = [[NSFileManager defaultManager] uniquePathForPath:[userFolder stringByAppendingPathComponent:destinationFile]];
 	
 		// Create userFolder if necessary
 		if (![[NSFileManager defaultManager] fileExistsAtPath:userFolder]) {
