@@ -71,15 +71,17 @@
 	NSFileManager *fileManager = [NSFileManager defaultManager];
 
 	// Find existing user folder, if any: the UID should be identical, though the display name may vary
-	NSString *file;
-	NSDirectoryEnumerator *dirEnum = [fileManager enumeratorAtPath:defaultFolder];
-	while (file = [dirEnum nextObject]) {
-		if ([file isEqualToString:fUID] || [file hasSuffix:[NSString stringWithFormat:@" (%@)", fUID]]) {
-			userFolderName = file;
+	NSString *fileOrDir;
+	NSDirectoryEnumerator *dirEnumerator = [fileManager enumeratorAtPath:defaultFolder];
+	while (fileOrDir = [dirEnumerator nextObject]) {
+		BOOL sameUID = [fileOrDir isEqualToString:fUID] || [fileOrDir hasSuffix:[NSString stringWithFormat:@" (%@)", fUID]];
+		BOOL isDirectory; [fileManager fileExistsAtPath:[defaultFolder stringByAppendingPathComponent:fileOrDir] isDirectory:&isDirectory];
+		if (sameUID && isDirectory) {
+			userFolderName = fileOrDir;
 			break;
 		}
 	}
-
+	
 	// Create user folder if necessary
 	NSString *userFolder = [defaultFolder stringByAppendingPathComponent:userFolderName];
 	if (![fileManager fileExistsAtPath:userFolder]) {
