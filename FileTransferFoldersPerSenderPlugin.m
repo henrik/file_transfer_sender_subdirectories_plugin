@@ -11,6 +11,7 @@
 #import <Adium/AIPreferenceControllerProtocol.h>
 #import <Adium/AIFileTransferControllerProtocol.h>
 #import <AIUtilities/AIFileManagerAdditions.h>
+#import <AIUtilities/AIStringAdditions.h>
 
 @implementation FileTransferFoldersPerSenderPlugin
 
@@ -51,6 +52,7 @@
 	NSString *displayName = [[transfer contact] displayName];
 	NSString *fUID = [[transfer contact] formattedUID];
 	NSString *userFolderName = [NSString stringWithFormat: (displayName ? @"%@ (%@)" : @"%@%@"), displayName, fUID];
+	userFolderName = [userFolderName safeFilenameString];
 
 	NSString *destinationPath = [transfer localFilename];
 	NSString *destinationFolder = [destinationPath stringByDeletingLastPathComponent];
@@ -59,7 +61,6 @@
 	NSString *defaultFolder = [[adium preferenceController] userPreferredDownloadFolder];
 	
 	// FIXME: Will rename foo.jpg to foo-1.jpg if default dir contains foo.jpg, even if user dir doesn't
-	// TODO: Handle bad characters in username? Or does the file manager do that?
 	
 	// Only move it if it would have gone into the default folder
 	if ([destinationFolder isEqualToString:defaultFolder]) {
