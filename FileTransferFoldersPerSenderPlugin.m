@@ -33,9 +33,9 @@
 	NSLog(@"FileTransferFoldersPerSenderPlugin loaded!");
 	
 	[[adium notificationCenter] addObserver:self
-								   selector:@selector(transferStarted:)
-									   name:FILE_TRANSFER_BEGAN
-									 object:nil];
+	                               selector:@selector(transferStarted:)
+	                                   name:FILE_TRANSFER_BEGAN
+							         object:nil];
 }
 
 - (void)uninstallPlugin {
@@ -57,11 +57,11 @@
 
 	NSString *destinationPath = [transfer localFilename];
 	NSString *destinationFolder = [destinationPath stringByDeletingLastPathComponent];
-	NSString *destinationFile = [destinationPath lastPathComponent];
+	// Use the remoteFilename, since the local filename may have been uniqued ("foo.jpg" becomes
+	// "foo-1.jpg") based on the state of the default download folder rather than the user folder.
+	NSString *destinationFile = [transfer remoteFilename];
 	
 	NSString *defaultFolder = [[adium preferenceController] userPreferredDownloadFolder];
-	
-	// FIXME: Will rename foo.jpg to foo-1.jpg if default dir contains foo.jpg, even if user dir doesn't
 	
 	// Only move it if it would have gone into the default folder
 	if ([destinationFolder isEqualToString:defaultFolder]) {
