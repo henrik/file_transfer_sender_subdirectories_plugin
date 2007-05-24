@@ -9,7 +9,6 @@
 #import <Adium/AIPlugin.h>
 
 @interface FileTransferFoldersPerSenderPlugin : AIPlugin {
-
 }
 
 @end
