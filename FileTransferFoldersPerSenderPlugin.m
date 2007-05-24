@@ -35,7 +35,7 @@
 	[[adium notificationCenter] addObserver:self
 	                               selector:@selector(transferStarted:)
 	                                   name:FILE_TRANSFER_BEGAN
-							         object:nil];
+	                                 object:nil];
 }
 
 - (void)uninstallPlugin {
