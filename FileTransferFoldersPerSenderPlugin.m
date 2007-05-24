@@ -8,7 +8,7 @@
 #import "FileTransferFoldersPerSenderPlugin.h"
 #import <Adium/AIAdiumProtocol.h>
 #import <Adium/AIPreferenceControllerProtocol.h>
-#import <Adium/AIFileTransferControllerProtocol.h>
+#import <Adium/ESFileTransfer.h>
 #import <AIUtilities/AIFileManagerAdditions.h>
 #import <AIUtilities/AIStringAdditions.h>
 
