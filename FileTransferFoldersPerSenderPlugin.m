@@ -60,14 +60,23 @@
 	
 	// FIXME: Will rename foo.jpg to foo-1.jpg if default dir contains foo.jpg, even if user dir doesn't
 	// TODO: Handle bad characters in username? Or does the file manager do that?
-	// TODO: Handle name changes (find userFolder by UID alone?)
 	
 	// Only move it if it would have gone into the default folder
 	if ([destinationFolder isEqualToString:defaultFolder]) {
+
+		// Find existing user folder, if any
+		NSString *file;
+		NSDirectoryEnumerator *dirEnum = [[NSFileManager defaultManager] enumeratorAtPath:defaultFolder];
+		while (file = [dirEnum nextObject]) {
+			if ([file hasSuffix:fUID] || [file hasSuffix:[NSString stringWithFormat:@" (%@)", fUID]]) {
+				userFolderName = file;
+				break;
+			}
+		}
 	
 		NSString *userFolder = [defaultFolder stringByAppendingPathComponent:userFolderName];
 		NSString *userPath = [[NSFileManager defaultManager] uniquePathForPath:[userFolder stringByAppendingPathComponent:destinationFile]];
-	
+
 		// Create userFolder if necessary
 		if (![[NSFileManager defaultManager] fileExistsAtPath:userFolder]) {
 			[[NSFileManager defaultManager] createDirectoryAtPath:userFolder attributes:nil];
