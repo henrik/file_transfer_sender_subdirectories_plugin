@@ -68,7 +68,7 @@
 		NSString *file;
 		NSDirectoryEnumerator *dirEnum = [[NSFileManager defaultManager] enumeratorAtPath:defaultFolder];
 		while (file = [dirEnum nextObject]) {
-			if ([file hasSuffix:fUID] || [file hasSuffix:[NSString stringWithFormat:@" (%@)", fUID]]) {
+			if ([file isEqualToString:fUID] || [file hasSuffix:[NSString stringWithFormat:@" (%@)", fUID]]) {
 				userFolderName = file;
 				break;
 			}
