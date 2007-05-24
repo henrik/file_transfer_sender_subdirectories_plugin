@@ -49,6 +49,7 @@
 
 	ESFileTransfer *transfer = (ESFileTransfer *)[notification userInfo];
 	
+	// Determine the name for the user folder: "Display Name (User ID)" or "User ID"
 	NSString *displayName = [[transfer contact] displayName];
 	NSString *fUID = [[transfer contact] formattedUID];
 	NSString *userFolderName = [NSString stringWithFormat: (displayName ? @"%@ (%@)" : @"%@%@"), displayName, fUID];
@@ -56,21 +57,20 @@
 	// Replace "/" with "-" and abbreviate long names
 	userFolderName = [userFolderName safeFilenameString];
 
+	// Figure out where this file is destined
 	NSString *destinationPath = [transfer localFilename];
 	NSString *destinationFolder = [destinationPath stringByDeletingLastPathComponent];
 
-	// Use the remote filename, since the local filename may have been uniqued ("foo.jpg" becomes
-	// "foo-1.jpg") based on the state of the default download folder rather than the user folder
+	// Use the remote filename, since the local filename may have been uniqued ("foo.jpg" becomes "foo-1.jpg") based on the contents of the default download folder rather than the user folder
 	NSString *destinationFile = [transfer remoteFilename];
 	
+	// Bail if the file is not destined for the default download folder (i.e. the user was prompted and chose someplace else)
 	NSString *defaultFolder = [[adium preferenceController] userPreferredDownloadFolder];
-	
-	// Only move the file if it would have gone into the default folder
 	if (![destinationFolder isEqualToString:defaultFolder]) return;
 	
 	NSFileManager *fileManager = [NSFileManager defaultManager];
 
-	// Find existing user folder, if any
+	// Find existing user folder, if any: the UID should be identical, though the display name may vary
 	NSString *file;
 	NSDirectoryEnumerator *dirEnum = [fileManager enumeratorAtPath:defaultFolder];
 	while (file = [dirEnum nextObject]) {
@@ -80,15 +80,14 @@
 		}
 	}
 
-	NSString *userFolder = [defaultFolder stringByAppendingPathComponent:userFolderName];
-	NSString *userPath = [fileManager uniquePathForPath:[userFolder stringByAppendingPathComponent:destinationFile]];
-
 	// Create user folder if necessary
+	NSString *userFolder = [defaultFolder stringByAppendingPathComponent:userFolderName];
 	if (![fileManager fileExistsAtPath:userFolder]) {
 		[fileManager createDirectoryAtPath:userFolder attributes:nil];
 	}
 
 	// Change destination filename
+	NSString *userPath = [fileManager uniquePathForPath:[userFolder stringByAppendingPathComponent:destinationFile]];
 	[transfer setLocalFilename:userPath];
 }
 
