@@ -31,18 +31,19 @@
 - (void)installPlugin {
 
 	NSLog(@"FileTransferFoldersPerSenderPlugin loaded!");
-	
 	[[adium notificationCenter] addObserver:self
 	                               selector:@selector(transferStarted:)
 	                                   name:FILE_TRANSFER_BEGAN
 	                                 object:nil];
 }
 
+
 - (void)uninstallPlugin {
 
 	[[adium notificationCenter] removeObserver:self];
 	NSLog(@"FileTransferFoldersPerSenderPlugin unloaded!");
 }
+
 
 - (void)transferStarted:(NSNotification *)notification {
 
