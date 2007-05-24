@@ -1,5 +1,4 @@
 //
-//  FileTransferFoldersPerSenderPlugin.m
 //  FileTransferFoldersPerSenderPlugin
 //
 //  By Henrik Nyh, 2007-05-24.
@@ -25,7 +24,7 @@
 	return @"1.0";
 }
 - (NSString *)pluginDescription {
-	return @"TODO.";
+	return @"Puts incoming files in per-sender subdirectories of the download folder.";
 }
 
 
@@ -52,6 +51,8 @@
 	NSString *displayName = [[transfer contact] displayName];
 	NSString *fUID = [[transfer contact] formattedUID];
 	NSString *userFolderName = [NSString stringWithFormat: (displayName ? @"%@ (%@)" : @"%@%@"), displayName, fUID];
+
+	// Replace "/" with "-" and abbreviate long names
 	userFolderName = [userFolderName safeFilenameString];
 
 	NSString *destinationPath = [transfer localFilename];

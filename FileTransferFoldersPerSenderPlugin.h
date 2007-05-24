@@ -1,5 +1,5 @@
 //
-//  FileTransferFoldersPerSenderPlugin.h
+//  FileTransferFoldersPerSenderPlugin
 //
 //  By Henrik Nyh, 2007-05-24.
 //  Free to modify and redistribute with due credit.
