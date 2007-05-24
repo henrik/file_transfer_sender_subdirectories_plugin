@@ -63,10 +63,12 @@
 	
 	// Only move it if it would have gone into the default folder
 	if ([destinationFolder isEqualToString:defaultFolder]) {
+	
+		NSFileManager *fileManager = [NSFileManager defaultManager];
 
 		// Find existing user folder, if any
 		NSString *file;
-		NSDirectoryEnumerator *dirEnum = [[NSFileManager defaultManager] enumeratorAtPath:defaultFolder];
+		NSDirectoryEnumerator *dirEnum = [fileManager enumeratorAtPath:defaultFolder];
 		while (file = [dirEnum nextObject]) {
 			if ([file isEqualToString:fUID] || [file hasSuffix:[NSString stringWithFormat:@" (%@)", fUID]]) {
 				userFolderName = file;
@@ -75,11 +77,11 @@
 		}
 	
 		NSString *userFolder = [defaultFolder stringByAppendingPathComponent:userFolderName];
-		NSString *userPath = [[NSFileManager defaultManager] uniquePathForPath:[userFolder stringByAppendingPathComponent:destinationFile]];
+		NSString *userPath = [fileManager uniquePathForPath:[userFolder stringByAppendingPathComponent:destinationFile]];
 
 		// Create userFolder if necessary
-		if (![[NSFileManager defaultManager] fileExistsAtPath:userFolder]) {
-			[[NSFileManager defaultManager] createDirectoryAtPath:userFolder attributes:nil];
+		if (![fileManager fileExistsAtPath:userFolder]) {
+			[fileManager createDirectoryAtPath:userFolder attributes:nil];
 		}
 
 		// Change destination filename
