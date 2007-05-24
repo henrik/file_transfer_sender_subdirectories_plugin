@@ -57,39 +57,38 @@
 
 	NSString *destinationPath = [transfer localFilename];
 	NSString *destinationFolder = [destinationPath stringByDeletingLastPathComponent];
-	// Use the remoteFilename, since the local filename may have been uniqued ("foo.jpg" becomes
-	// "foo-1.jpg") based on the state of the default download folder rather than the user folder.
+
+	// Use the remote filename, since the local filename may have been uniqued ("foo.jpg" becomes
+	// "foo-1.jpg") based on the state of the default download folder rather than the user folder
 	NSString *destinationFile = [transfer remoteFilename];
 	
 	NSString *defaultFolder = [[adium preferenceController] userPreferredDownloadFolder];
 	
-	// Only move it if it would have gone into the default folder
-	if ([destinationFolder isEqualToString:defaultFolder]) {
+	// Only move the file if it would have gone into the default folder
+	if (![destinationFolder isEqualToString:defaultFolder]) return;
 	
-		NSFileManager *fileManager = [NSFileManager defaultManager];
+	NSFileManager *fileManager = [NSFileManager defaultManager];
 
-		// Find existing user folder, if any
-		NSString *file;
-		NSDirectoryEnumerator *dirEnum = [fileManager enumeratorAtPath:defaultFolder];
-		while (file = [dirEnum nextObject]) {
-			if ([file isEqualToString:fUID] || [file hasSuffix:[NSString stringWithFormat:@" (%@)", fUID]]) {
-				userFolderName = file;
-				break;
-			}
+	// Find existing user folder, if any
+	NSString *file;
+	NSDirectoryEnumerator *dirEnum = [fileManager enumeratorAtPath:defaultFolder];
+	while (file = [dirEnum nextObject]) {
+		if ([file isEqualToString:fUID] || [file hasSuffix:[NSString stringWithFormat:@" (%@)", fUID]]) {
+			userFolderName = file;
+			break;
 		}
-	
-		NSString *userFolder = [defaultFolder stringByAppendingPathComponent:userFolderName];
-		NSString *userPath = [fileManager uniquePathForPath:[userFolder stringByAppendingPathComponent:destinationFile]];
-
-		// Create userFolder if necessary
-		if (![fileManager fileExistsAtPath:userFolder]) {
-			[fileManager createDirectoryAtPath:userFolder attributes:nil];
-		}
-
-		// Change destination filename
-		[transfer setLocalFilename:userPath];
 	}
 
+	NSString *userFolder = [defaultFolder stringByAppendingPathComponent:userFolderName];
+	NSString *userPath = [fileManager uniquePathForPath:[userFolder stringByAppendingPathComponent:destinationFile]];
+
+	// Create user folder if necessary
+	if (![fileManager fileExistsAtPath:userFolder]) {
+		[fileManager createDirectoryAtPath:userFolder attributes:nil];
+	}
+
+	// Change destination filename
+	[transfer setLocalFilename:userPath];
 }
 
 @end
