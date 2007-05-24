@@ -12,7 +12,7 @@
 		AFC7280F0C04F43000BF3696 /* Adium.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFC7280E0C04F43000BF3696 /* Adium.framework */; };
 		AFC728140C04F43D00BF3696 /* AIUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFC728120C04F43D00BF3696 /* AIUtilities.framework */; };
 		AFC728150C04F43D00BF3696 /* FriBidi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFC728130C04F43D00BF3696 /* FriBidi.framework */; };
-		AFC7281E0C04F47B00BF3696 /* FileTransferFoldersPerSenderPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = AFC7281D0C04F47B00BF3696 /* FileTransferFoldersPerSenderPlugin.m */; };
+		AFC7281E0C04F47B00BF3696 /* FileTransferSenderSubdirectoriesPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = AFC7281D0C04F47B00BF3696 /* FileTransferSenderSubdirectoriesPlugin.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,14 +20,14 @@
 		089C167EFE841241C02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		089C167FFE841241C02AAC07 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
-		32DBCF630370AF2F00C91783 /* FileTransferFoldersPerSenderPlugin_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileTransferFoldersPerSenderPlugin_Prefix.pch; sourceTree = "<group>"; };
-		8D5B49B6048680CD000E48DA /* FileTransferFoldersPerSenderPlugin.AdiumPlugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FileTransferFoldersPerSenderPlugin.AdiumPlugin; sourceTree = BUILT_PRODUCTS_DIR; };
+		32DBCF630370AF2F00C91783 /* FileTransferSenderSubdirectoriesPlugin_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileTransferSenderSubdirectoriesPlugin_Prefix.pch; sourceTree = "<group>"; };
+		8D5B49B6048680CD000E48DA /* FileTransferSenderSubdirectoriesPlugin.AdiumPlugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FileTransferSenderSubdirectoriesPlugin.AdiumPlugin; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D5B49B7048680CD000E48DA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Info.plist; sourceTree = "<group>"; };
 		AFC7280E0C04F43000BF3696 /* Adium.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Adium.framework; sourceTree = "<group>"; };
 		AFC728120C04F43D00BF3696 /* AIUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AIUtilities.framework; sourceTree = "<group>"; };
 		AFC728130C04F43D00BF3696 /* FriBidi.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FriBidi.framework; sourceTree = "<group>"; };
-		AFC7281C0C04F47B00BF3696 /* FileTransferFoldersPerSenderPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileTransferFoldersPerSenderPlugin.h; sourceTree = "<group>"; };
-		AFC7281D0C04F47B00BF3696 /* FileTransferFoldersPerSenderPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileTransferFoldersPerSenderPlugin.m; sourceTree = "<group>"; };
+		AFC7281C0C04F47B00BF3696 /* FileTransferSenderSubdirectoriesPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileTransferSenderSubdirectoriesPlugin.h; sourceTree = "<group>"; };
+		AFC7281D0C04F47B00BF3696 /* FileTransferSenderSubdirectoriesPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileTransferSenderSubdirectoriesPlugin.m; sourceTree = "<group>"; };
 		D2F7E65807B2D6F200F64583 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
@@ -46,7 +46,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		089C166AFE841209C02AAC07 /* FileTransferFoldersPerSenderPlugin */ = {
+		089C166AFE841209C02AAC07 /* FileTransferSenderSubdirectoriesPlugin */ = {
 			isa = PBXGroup;
 			children = (
 				08FB77AFFE84173DC02AAC07 /* Classes */,
@@ -55,7 +55,7 @@
 				089C1671FE841209C02AAC07 /* Frameworks and Libraries */,
 				19C28FB8FE9D52D311CA2CBB /* Products */,
 			);
-			name = FileTransferFoldersPerSenderPlugin;
+			name = FileTransferSenderSubdirectoriesPlugin;
 			sourceTree = "<group>";
 		};
 		089C1671FE841209C02AAC07 /* Frameworks and Libraries */ = {
@@ -90,8 +90,8 @@
 				AFC728130C04F43D00BF3696 /* FriBidi.framework */,
 				AFC7280E0C04F43000BF3696 /* Adium.framework */,
 				1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */,
-				AFC7281C0C04F47B00BF3696 /* FileTransferFoldersPerSenderPlugin.h */,
-				AFC7281D0C04F47B00BF3696 /* FileTransferFoldersPerSenderPlugin.m */,
+				AFC7281C0C04F47B00BF3696 /* FileTransferSenderSubdirectoriesPlugin.h */,
+				AFC7281D0C04F47B00BF3696 /* FileTransferSenderSubdirectoriesPlugin.m */,
 			);
 			name = "Linked Frameworks";
 			sourceTree = "<group>";
@@ -109,7 +109,7 @@
 		19C28FB8FE9D52D311CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8D5B49B6048680CD000E48DA /* FileTransferFoldersPerSenderPlugin.AdiumPlugin */,
+				8D5B49B6048680CD000E48DA /* FileTransferSenderSubdirectoriesPlugin.AdiumPlugin */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -117,7 +117,7 @@
 		32C88E010371C26100C91783 /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
-				32DBCF630370AF2F00C91783 /* FileTransferFoldersPerSenderPlugin_Prefix.pch */,
+				32DBCF630370AF2F00C91783 /* FileTransferSenderSubdirectoriesPlugin_Prefix.pch */,
 			);
 			name = "Other Sources";
 			sourceTree = "<group>";
@@ -125,9 +125,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8D5B49AC048680CD000E48DA /* FileTransferFoldersPerSenderPlugin */ = {
+		8D5B49AC048680CD000E48DA /* FileTransferSenderSubdirectoriesPlugin */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1DEB913A08733D840010E9CD /* Build configuration list for PBXNativeTarget "FileTransferFoldersPerSenderPlugin" */;
+			buildConfigurationList = 1DEB913A08733D840010E9CD /* Build configuration list for PBXNativeTarget "FileTransferSenderSubdirectoriesPlugin" */;
 			buildPhases = (
 				8D5B49AF048680CD000E48DA /* Resources */,
 				8D5B49B1048680CD000E48DA /* Sources */,
@@ -137,10 +137,10 @@
 			);
 			dependencies = (
 			);
-			name = FileTransferFoldersPerSenderPlugin;
+			name = FileTransferSenderSubdirectoriesPlugin;
 			productInstallPath = "$(HOME)/Library/Bundles";
-			productName = FileTransferFoldersPerSenderPlugin;
-			productReference = 8D5B49B6048680CD000E48DA /* FileTransferFoldersPerSenderPlugin.AdiumPlugin */;
+			productName = FileTransferSenderSubdirectoriesPlugin;
+			productReference = 8D5B49B6048680CD000E48DA /* FileTransferSenderSubdirectoriesPlugin.AdiumPlugin */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -148,12 +148,12 @@
 /* Begin PBXProject section */
 		089C1669FE841209C02AAC07 /* Project object */ = {
 			isa = PBXProject;
-			buildConfigurationList = 1DEB913E08733D840010E9CD /* Build configuration list for PBXProject "FileTransferFoldersPerSenderPlugin" */;
+			buildConfigurationList = 1DEB913E08733D840010E9CD /* Build configuration list for PBXProject "FileTransferSenderSubdirectoriesPlugin" */;
 			hasScannedForEncodings = 1;
-			mainGroup = 089C166AFE841209C02AAC07 /* FileTransferFoldersPerSenderPlugin */;
+			mainGroup = 089C166AFE841209C02AAC07 /* FileTransferSenderSubdirectoriesPlugin */;
 			projectDirPath = "";
 			targets = (
-				8D5B49AC048680CD000E48DA /* FileTransferFoldersPerSenderPlugin */,
+				8D5B49AC048680CD000E48DA /* FileTransferSenderSubdirectoriesPlugin */,
 			);
 		};
 /* End PBXProject section */
@@ -174,7 +174,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AFC7281E0C04F47B00BF3696 /* FileTransferFoldersPerSenderPlugin.m in Sources */,
+				AFC7281E0C04F47B00BF3696 /* FileTransferSenderSubdirectoriesPlugin.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,14 +206,14 @@
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = FileTransferFoldersPerSenderPlugin_Prefix.pch;
+				GCC_PREFIX_HEADER = FileTransferSenderSubdirectoriesPlugin_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/Bundles";
 				OTHER_LDFLAGS = (
 					"-undefined",
 					dynamic_lookup,
 				);
-				PRODUCT_NAME = FileTransferFoldersPerSenderPlugin;
+				PRODUCT_NAME = FileTransferSenderSubdirectoriesPlugin;
 				WRAPPER_EXTENSION = AdiumPlugin;
 				ZERO_LINK = YES;
 			};
@@ -234,14 +234,14 @@
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = FileTransferFoldersPerSenderPlugin_Prefix.pch;
+				GCC_PREFIX_HEADER = FileTransferSenderSubdirectoriesPlugin_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/Bundles";
 				OTHER_LDFLAGS = (
 					"-undefined",
 					dynamic_lookup,
 				);
-				PRODUCT_NAME = FileTransferFoldersPerSenderPlugin;
+				PRODUCT_NAME = FileTransferSenderSubdirectoriesPlugin;
 				WRAPPER_EXTENSION = AdiumPlugin;
 			};
 			name = Release;
@@ -269,7 +269,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1DEB913A08733D840010E9CD /* Build configuration list for PBXNativeTarget "FileTransferFoldersPerSenderPlugin" */ = {
+		1DEB913A08733D840010E9CD /* Build configuration list for PBXNativeTarget "FileTransferSenderSubdirectoriesPlugin" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1DEB913B08733D840010E9CD /* Debug */,
@@ -278,7 +278,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1DEB913E08733D840010E9CD /* Build configuration list for PBXProject "FileTransferFoldersPerSenderPlugin" */ = {
+		1DEB913E08733D840010E9CD /* Build configuration list for PBXProject "FileTransferSenderSubdirectoriesPlugin" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1DEB913F08733D840010E9CD /* Debug */,
