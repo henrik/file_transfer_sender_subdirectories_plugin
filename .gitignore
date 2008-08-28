@@ -1,0 +1,4 @@
+/build
+/FileTransferSenderSubdirectoriesPlugin.xcodeproj/*.mode1v3
+/FileTransferSenderSubdirectoriesPlugin.xcodeproj/*.pbxuser
+/*.framework
