@@ -230,7 +230,7 @@
 					dynamic_lookup,
 				);
 				PRODUCT_NAME = FileTransferSenderSubdirectoriesPlugin;
-				SDKROOT = /Developer/SDKs/MacOSX10.5.sdk;
+				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
 				WRAPPER_EXTENSION = AdiumPlugin;
 				ZERO_LINK = YES;
 			};
@@ -261,7 +261,7 @@
 					dynamic_lookup,
 				);
 				PRODUCT_NAME = FileTransferSenderSubdirectoriesPlugin;
-				SDKROOT = /Developer/SDKs/MacOSX10.5.sdk;
+				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
 				WRAPPER_EXTENSION = AdiumPlugin;
 			};
 			name = Release;
