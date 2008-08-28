@@ -21,7 +21,7 @@
 	return @"http://henrik.nyh.se/";
 }
 - (NSString *)pluginVersion {
-	return @"1.0";
+	return @"1.1";
 }
 - (NSString *)pluginDescription {
 	return @"Puts incoming files in per-sender subdirectories of the default directory.";
