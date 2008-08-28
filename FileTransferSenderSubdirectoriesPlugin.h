@@ -8,6 +8,10 @@
 #import <Cocoa/Cocoa.h>
 #import <Adium/AIPlugin.h>
 
+// To make the plugin compile in Adium 1.3
+#import <Adium/AISharedAdium.h>
+#import <AIUtilities/AITigerCompatibility.h>
+
 @interface FileTransferSenderSubdirectoriesPlugin : AIPlugin {
 }
 
