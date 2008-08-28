@@ -2,8 +2,6 @@
 
 An Adium plugin that puts incoming files in per-sender subdirectories of the default directory.
 
-Currently NOT compatible with Adium 1.3!
-
 ## Building
 
 In addition to the code in this repository, you need to add the linked frameworks
