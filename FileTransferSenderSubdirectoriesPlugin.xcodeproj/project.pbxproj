@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		8D5B49B0048680CD000E48DA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C167DFE841241C02AAC07 /* InfoPlist.strings */; };
 		8D5B49B4048680CD000E48DA /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */; };
+		AF8B614A0E6690AC00F430DF /* Adium.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF8B61470E6690AC00F430DF /* Adium.framework */; };
+		AF8B614B0E6690AC00F430DF /* AIUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF8B61480E6690AC00F430DF /* AIUtilities.framework */; };
+		AF8B614C0E6690AC00F430DF /* FriBidi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF8B61490E6690AC00F430DF /* FriBidi.framework */; };
 		AFC7280F0C04F43000BF3696 /* Adium.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFC7280E0C04F43000BF3696 /* Adium.framework */; };
 		AFC728140C04F43D00BF3696 /* AIUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFC728120C04F43D00BF3696 /* AIUtilities.framework */; };
 		AFC728150C04F43D00BF3696 /* FriBidi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFC728130C04F43D00BF3696 /* FriBidi.framework */; };
@@ -22,7 +25,10 @@
 		1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		32DBCF630370AF2F00C91783 /* FileTransferSenderSubdirectoriesPlugin_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileTransferSenderSubdirectoriesPlugin_Prefix.pch; sourceTree = "<group>"; };
 		8D5B49B6048680CD000E48DA /* FileTransferSenderSubdirectoriesPlugin.AdiumPlugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FileTransferSenderSubdirectoriesPlugin.AdiumPlugin; sourceTree = BUILT_PRODUCTS_DIR; };
-		8D5B49B7048680CD000E48DA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Info.plist; sourceTree = "<group>"; };
+		8D5B49B7048680CD000E48DA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AF8B61470E6690AC00F430DF /* Adium.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Adium.framework; sourceTree = SOURCE_ROOT; };
+		AF8B61480E6690AC00F430DF /* AIUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AIUtilities.framework; sourceTree = SOURCE_ROOT; };
+		AF8B61490E6690AC00F430DF /* FriBidi.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FriBidi.framework; sourceTree = SOURCE_ROOT; };
 		AFC7280E0C04F43000BF3696 /* Adium.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Adium.framework; sourceTree = "<group>"; };
 		AFC728120C04F43D00BF3696 /* AIUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AIUtilities.framework; sourceTree = "<group>"; };
 		AFC728130C04F43D00BF3696 /* FriBidi.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FriBidi.framework; sourceTree = "<group>"; };
@@ -40,6 +46,9 @@
 				AFC7280F0C04F43000BF3696 /* Adium.framework in Frameworks */,
 				AFC728140C04F43D00BF3696 /* AIUtilities.framework in Frameworks */,
 				AFC728150C04F43D00BF3696 /* FriBidi.framework in Frameworks */,
+				AF8B614A0E6690AC00F430DF /* Adium.framework in Frameworks */,
+				AF8B614B0E6690AC00F430DF /* AIUtilities.framework in Frameworks */,
+				AF8B614C0E6690AC00F430DF /* FriBidi.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -49,6 +58,9 @@
 		089C166AFE841209C02AAC07 /* FileTransferSenderSubdirectoriesPlugin */ = {
 			isa = PBXGroup;
 			children = (
+				AF8B61470E6690AC00F430DF /* Adium.framework */,
+				AF8B61480E6690AC00F430DF /* AIUtilities.framework */,
+				AF8B61490E6690AC00F430DF /* FriBidi.framework */,
 				08FB77AFFE84173DC02AAC07 /* Classes */,
 				32C88E010371C26100C91783 /* Other Sources */,
 				089C167CFE841241C02AAC07 /* Resources */,
@@ -149,9 +161,11 @@
 		089C1669FE841209C02AAC07 /* Project object */ = {
 			isa = PBXProject;
 			buildConfigurationList = 1DEB913E08733D840010E9CD /* Build configuration list for PBXProject "FileTransferSenderSubdirectoriesPlugin" */;
+			compatibilityVersion = "Xcode 2.4";
 			hasScannedForEncodings = 1;
 			mainGroup = 089C166AFE841209C02AAC07 /* FileTransferSenderSubdirectoriesPlugin */;
 			projectDirPath = "";
+			projectRoot = "";
 			targets = (
 				8D5B49AC048680CD000E48DA /* FileTransferSenderSubdirectoriesPlugin */,
 			);
@@ -199,8 +213,10 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_1)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
 				);
 				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)\"";
+				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)\"";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_MODEL_TUNING = G5;
@@ -229,8 +245,10 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_1)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
 				);
 				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)\"";
+				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)\"";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
