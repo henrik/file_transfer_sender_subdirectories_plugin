@@ -1,0 +1,6 @@
+- Jabber JIDs, at least those with resources (foo@example.com/Bar) get ugly dirnames:
+  Foo (foo@example.com-Bar671071F0)
+  Should probably ditch the numbers. And possibly the resource (-Bar) too?
+  
+- Are directories for users without display name really reused?
+  Code seems to only match " (User Name)" suffix.
